@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+
+<head>
+    <style>
+        :root {
+            --light-yellow: #E9A131;
+            --light-orange: #F67422;
+            --dark-orange: #E55017;
+            --light-brown: #844926;
+            --dark-brown: #5F3822;
+            --cream: #EBD4B5;
+        }
+
+        body {
+            margin: 1vh 1vw;
+            padding: 1vh 1vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--light-yellow);
+            flex-direction: column;
+        }
+
+        @font-face {
+            src: url(kleptocracy-titling.lt-regular.otf);
+            font-family: 'Kleptocracy Titling Lt-Regular';
+        }
+
+        @font-face {
+            src: url(kleptocracy-titling.rg-bold.otf);
+            font-family: 'Kleptocracy Titling Rg-Bold';
+        }
+
+        @font-face {
+            src: url(polaris.regular.otf);
+            font-family: 'Polaris Regular';
+        }
+
+        .title span {
+
+            color: var(--dark-brown);
+            font-family: 'Kleptocracy Titling Lt-Regular';
+        }
+
+        .title {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 3em;
+            color: var(--dark-orange);
+            font-family: 'Kleptocracy Titling Rg-Bold';
+        }
+
+
+        .outer-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: var(--light-orange);
+            border: 0.5rem solid var(--light-yellow);
+            outline: 0.5rem solid var(--cream);
+            box-shadow: 0 0 0 1rem var(--dark-orange);
+            border-radius: 24px;
+            margin: 2rem;
+            padding: 1rem;
+            outline-offset: 0.5rem;
+            width: 40vw;
+        }
+
+        @media screen and (width <=90rem) {
+            .outer-container {
+                width: 60%;
+            }
+        }
+
+        .inner-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .button-container {
+            position: relative;
+            display: inline-block;
+            padding: 1em;
+        }
+
+        #myButton {
+            background-color: var(--light-yellow);
+            color: var(--dark-brown);
+            border-radius: 5px;
+            border: 0.2rem solid var(--light-yellow);
+            outline: 0.2rem solid var(--cream);
+            box-shadow: 0 0 0 0.5rem var(--dark-orange);
+            cursor: pointer;
+            font-size: 2em;
+        }
+
+        .currency {
+            font-family: 'Kleptocracy Titling Lt-Regular';
+            font-size: 3em;
+            color: var(--cream);
+            text-shadow: var(--dark-brown) 1px 1px 0px
+        }
+
+        .label {
+            font-family: 'Polaris Regular';
+            font-size: 1em;
+            color: var(--dark-brown);
+        }
+
+        #receipt {
+            display: flex;
+            flex-direction: column;
+            width: 65%;
+            background: var(--cream);
+            box-shadow: var(--dark-brown) 5px 5px 0px;
+            padding: 5%;
+            font-family: 'Polaris Regular';
+            font-size: 0.8em;
+            color: var(--dark-brown);
+            text-align: left;
+        }
+
+        #receipt div:nth-child(2n) {
+            text-align: right;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .particle-container {
+            position: relative;
+            pointer-events: none;
+            top: -100px;
+        }
+
+        .particle {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            left: 0;
+            top: 100px;
+            background-image: url(money-svgrepo-com.png);
+            background-size: contain;
+            animation:
+                o 2s normal forwards,
+                x 3s linear infinite var(--direction),
+                y var(--speed) infinite cubic-bezier(0, 533.33, 1, 533.33);
+
+        }
+
+        input[type="range"] {
+            accent-color: var(--light-yellow);
+        }
+
+        @keyframes o {
+            to {
+                opacity: 0;
+            }
+        }
+
+        @keyframes x {
+            to {
+                left: var(--offset);
+
+            }
+        }
+
+        @keyframes y {
+            to {
+                top: 99.5px;
+
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="title"><span>Make a</span>Trillion</div>
+    <div class="outer-container">
+
+        <div class="particle-container"></div>
+        <div class="inner-container"><span class="label">net worth:</span><span class="currency">$<span
+                    id="thousands">0</span>,000</span></div>
+
+        <div class="label">how much are your clicks worth?</div>
+
+        <div class="currency">$<span id="salary">1</span>,000</div>
+        <input type="range" id="perclick" min="0" max="3" step="0.1" value="0" />
+
+        <div class="button-container">
+            <button id="myButton">Print Money</button>
+        </div>
+        <div class="inner-container">
+            <span class="currency">$<span id="frequency">0</span>,000 </span><span class="label">per
+                second</span>
+        </div>
+        <div id="receipt">
+            <div id="time">It would take you:</div>
+            <div><span id="seconds">infinite</span> seconds</div>
+            <div id="time">which is:</div>
+            <div><span id="days">infinite</span> days and <span id="dayRemainder">0</span> hours</div>
+            <div id="time">or:</div>
+            <div><span id="weeks">infinite</span> weeks and <span id="weekRemainder">0</span> days</div>
+            <div class="year" id="time">or:</div>
+            <div class="year"><span id="years">infinite</span> years</div>
+            <div></div>
+            <div style="text-align: center;">of continuous clicking.</div>
+        </div>
+    </div>
+    </div>
+
+    <script>
+        const button = document.getElementById('myButton');
+        const salaryInput = document.getElementById('perclick');
+        const salaryDisplay = document.getElementById('salary');
+        const fqDisplay = document.getElementById('frequency');
+        const millDisplay = document.getElementById('thousands');
+        const secondsDisplay = document.getElementById('seconds');
+        const daysDisplay = document.getElementById('days');
+        const dayRemainderDisplay = document.getElementById('dayRemainder');
+        const weeksDisplay = document.getElementById('weeks');
+        const weekRemainderDisplay = document.getElementById('weekRemainder');
+        const yearsDisplay = document.getElementById('years');
+        const particleContainer = document.querySelector('.particle-container');
+        const yearEntry = document.getElementsByClassName('year');
+
+        let thousands = 0;
+        let last = 0;
+        let deltas = Array.from({ length: 10 }, () => 0);
+        let index = 0;
+        let perclick = salaryInput.value;
+        salaryDisplay.innerText = `${Math.pow(10, perclick).toLocaleString("en-gb", { maximumFractionDigits: 0, minimumFractionDigits: 0 })}`
+
+        const max_deltas = 10;
+        button.addEventListener('click', () => {
+
+            const next = Date.now();
+            if (last !== 0) {
+                deltas[index] = next - last;
+                index = (index + 1) % max_deltas;
+            }
+            last = next;
+
+            const total = deltas.reduce((s, v) => s + v, 0);
+            const count = deltas.reduce((s, v) => v > 0 ? s + 1 : s, 0);
+
+            const increment = Math.floor(Math.pow(10, perclick));
+
+            if (count !== 0) {
+                const avg = total / count;
+                const fq = (1 / avg) * 1000 * increment; // frequency per second
+                fqDisplay.innerText = fq.toLocaleString("en-gb", { maximumFractionDigits: 0, minimumFractionDigits: 0 });
+
+                const target = 1_000 * 1_000_000 // one million million == trillion
+                const time = target / fq; // in seconds
+
+                secondsDisplay.innerText = time.toLocaleString("en-gb", { maximumFractionDigits: 0 });
+
+                const hours = time / (60 * 60);
+                const days = hours / 24;
+                const dayRemainder = hours % 24;
+                daysDisplay.innerText = days.toLocaleString("en-gb", { maximumFractionDigits: 0 });
+                dayRemainderDisplay.innerText = dayRemainder.toLocaleString("en-gb", { maximumFractionDigits: 0 });
+
+                const weeks = Math.floor(days / 7);
+                weeksDisplay.innerText = weeks.toLocaleString("en-gb", { maximumFractionDigits: 0, });
+                const weekRemainder = days % 7;
+                weekRemainderDisplay.innerText = weekRemainder.toLocaleString("en-gb", { maximumFractionDigits: 0 });
+
+                const years = days / 365;
+                if (years < 1) {
+                    for (element of yearEntry) {
+                        element.classList.add("hidden");
+                    }
+                } else {
+                    for (element of yearEntry) {
+                        element.classList.remove("hidden");
+                    }
+                }
+                yearsDisplay.innerText = years.toLocaleString("en-gb", { maximumFractionDigits: 1 });
+
+
+            }
+
+            thousands = thousands + increment;
+            millDisplay.innerText = thousands.toLocaleString("en-gb", { maximumFractionDigits: 0 });
+
+
+            for (let i = 0; i < (perclick + 1); i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+
+                // Start particles from top center of button
+                particle.style.setProperty("--direction", Math.random() < 0.5 ? "forwards" : "forwards")
+                particle.style.setProperty("--offset", Math.random() < 0.5 ? `-${Math.random() * 500}px` : `${Math.random() * 500}px`)
+                particle.style.setProperty("--speed", `${Math.random() / 2 + 0.5}s`)
+
+                particleContainer.appendChild(particle);
+
+                setTimeout(() => {
+                    particle.remove();
+                }, 3000);
+            }
+        });
+
+        salaryInput.addEventListener('input', () => {
+            perclick = salaryInput.value;
+            salaryDisplay.innerText = `${Math.pow(10, perclick).toLocaleString("en-gb", { maximumFractionDigits: 0, minimumFractionDigits: 0 })}`
+        });
+    </script>
+</body>
