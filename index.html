@@ -318,21 +318,19 @@
             millDisplay.innerText = thousands.toLocaleString("en-gb", { maximumFractionDigits: 0 });
 
 
-            for (let i = 0; i < (perclick + 1); i++) {
-                const particle = document.createElement('div');
-                particle.classList.add('particle');
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
 
-                // Start particles from top center of button
-                particle.style.setProperty("--direction", Math.random() < 0.5 ? "forwards" : "forwards")
-                particle.style.setProperty("--offset", Math.random() < 0.5 ? `-${Math.random() * 500}px` : `${Math.random() * 500}px`)
-                particle.style.setProperty("--speed", `${Math.random() / 2 + 0.5}s`)
+            // Start particles from top center of button
+            particle.style.setProperty("--direction", Math.random() < 0.5 ? "forwards" : "forwards")
+            particle.style.setProperty("--offset", Math.random() < 0.5 ? `-${Math.random() * 500}px` : `${Math.random() * 500}px`)
+            particle.style.setProperty("--speed", `${Math.random() / 2 + 0.5}s`)
 
-                particleContainer.appendChild(particle);
+            particleContainer.appendChild(particle);
 
-                setTimeout(() => {
-                    particle.remove();
-                }, 3000);
-            }
+            setTimeout(() => {
+                particle.remove();
+            }, 3000);
         });
 
         salaryInput.addEventListener('input', () => {
