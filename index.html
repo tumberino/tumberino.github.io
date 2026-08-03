@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 
 <head>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description"
+        content="Given that you could print money with just a click, how long would it take you to make a trillion?" />
     <style>
         :root {
             --light-yellow: #E9A131;
@@ -205,43 +213,45 @@
             }
         }
     </style>
+    <title>Make A Trillion - tumberino</title>
 </head>
 
 <body>
-    <div class="title"><span>Make a</span>Trillion</div>
-    <div class="outer-container">
+    <main>
+        <div class="title"><span>Make a</span>Trillion</div>
+        <div class="outer-container">
 
-        <div class="particle-container"></div>
-        <div class="inner-container"><span class="label">net worth:</span><span class="currency">$<span
-                    id="thousands">0</span>,000</span></div>
+            <div class="particle-container"></div>
+            <div class="inner-container"><span class="label">net worth:</span><span class="currency">$<span
+                        id="thousands">0</span>,000</span></div>
 
-        <div class="label">how much are your clicks worth?</div>
+            <div class="label">how much are your clicks worth?</div>
 
-        <div class="currency">$<span id="salary">1</span>,000</div>
-        <input type="range" id="perclick" min="0" max="3" step="0.1" value="0" />
+            <div class="currency">$<span id="salary">1</span>,000</div>
+            <input type="range" id="perclick" min="0" max="3" step="0.1" value="0" />
 
-        <div class="button-container">
-            <button id="myButton">Print Money</button>
+            <div class="button-container">
+                <button id="myButton">Print Money</button>
+            </div>
+            <div class="inner-container">
+                <span class="currency">$<span id="frequency">0</span>,000 </span><span class="label">per
+                    second</span>
+            </div>
+            <div id="receipt">
+                <div id="time">It would take you:</div>
+                <div><span id="seconds">infinite</span> seconds</div>
+                <div id="time">which is:</div>
+                <div><span id="days">infinite</span> days and <span id="dayRemainder">0</span> hours</div>
+                <div id="time">or:</div>
+                <div><span id="weeks">infinite</span> weeks and <span id="weekRemainder">0</span> days</div>
+                <div class="year" id="time">or:</div>
+                <div class="year"><span id="years">infinite</span> years</div>
+                <div></div>
+                <div style="text-align: center;">of continuous clicking.</div>
+            </div>
         </div>
-        <div class="inner-container">
-            <span class="currency">$<span id="frequency">0</span>,000 </span><span class="label">per
-                second</span>
         </div>
-        <div id="receipt">
-            <div id="time">It would take you:</div>
-            <div><span id="seconds">infinite</span> seconds</div>
-            <div id="time">which is:</div>
-            <div><span id="days">infinite</span> days and <span id="dayRemainder">0</span> hours</div>
-            <div id="time">or:</div>
-            <div><span id="weeks">infinite</span> weeks and <span id="weekRemainder">0</span> days</div>
-            <div class="year" id="time">or:</div>
-            <div class="year"><span id="years">infinite</span> years</div>
-            <div></div>
-            <div style="text-align: center;">of continuous clicking.</div>
-        </div>
-    </div>
-    </div>
-
+    </main>
     <script>
         const button = document.getElementById('myButton');
         const salaryInput = document.getElementById('perclick');
