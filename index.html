@@ -275,7 +275,8 @@
         salaryDisplay.innerText = `${Math.pow(10, perclick).toLocaleString("en-gb", { maximumFractionDigits: 0, minimumFractionDigits: 0 })}`
 
         const max_deltas = 10;
-        button.addEventListener('click', () => {
+        button.addEventListener('click', (event) => {
+            event.preventDefault();
 
             const next = Date.now();
             if (last !== 0) {
